@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Bash script to bootstrap a Mac into Chef and install all dependencies
+# Tested on OS X 10.11 only
+
+# Define colours for terminal output
 RED=`tput setaf 1`
 GREEN=`tput setaf 2`
 RESET=`tput sgr0`
@@ -9,36 +13,39 @@ echo
 echo "${RED}mac_bootstrap for $(whoami) on $(hostname -s)${RESET}"
 echo
 echo "${RED}ENTER YOUR PASSWORD WHEN PROMPTED${RESET}"
-echo
 
 # check if Xcode Command Line Tools are installed
-# return code is 0 if they are, 2 if they are not
-xcode-select -p
+# return code is 0 if they are, 2 if they are not, supress any output
+xcode-select -p &> /dev/null
 if [ $? == 2 ]
 then
   echo
 	echo "${RED}  Installing Xcode Command Line Tools ...${RESET}"
 	echo "${RED}  ---------------------------------------${RESET}"
-	echo
-	echo "${RED}CLICK INSTALL IN THE WINDOW THAT OPENS${RESET}"
-	echo
-	#need to wait for this
-	xcode-select --install
+	
+	# Taken from https://github.com/timsutton/osx-vm-templates/blob/master/scripts/xcode-cli-tools.sh
+
+	# create the placeholder file that's checked by CLI updates' .dist code 
+	# in Apple's SUS catalog
+	touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+	# find the CLI Tools update
+	PROD=$(softwareupdate -l | grep "\*.*Command Line" | head -n 1 | awk -F"*" '{print $2}' | sed -e 's/^ *//' | tr -d '\n')
+	# install it
+	softwareupdate -i "$PROD" -v
 else
-	echo "${GREEN}  Xcode Command Line Tools already installed.${RESET}"
-	echo	
+	echo
+	echo "${GREEN}  Xcode Command Line Tools already installed.${RESET}"	
 fi
 
 if [ "$(whoami)" != "$(stat -f '%Su' /usr/local/bin/)" ]
 then
 	echo
-	echo "${RED}  Fix ownership of /usr/local/ ...${RESET}"
-	echo "${RED}  --------------------------------${RESET}"
-	echo
+	echo "${RED}  Fixing ownership of /usr/local/ ...${RESET}"
+	echo "${RED}  -----------------------------------${RESET}"
 	sudo chown -R $(whoami):admin /usr/local
 else
-	echo "${GREEN}  Owner of /usr/local/bin is already $(whoami).${RESET}"
 	echo
+	echo "${GREEN}  Owner of /usr/local/bin is already $(whoami).${RESET}"
 fi
 
 if [ ! -f "/opt/chef/bin/chef-client" ]
@@ -46,11 +53,10 @@ then
 	echo
 	echo "${RED}  Installing Chef ...${RESET}"
 	echo "${RED}  -------------------${RESET}"
-	echo
 	curl -L https://omnitruck.chef.io/install.sh | sudo bash
 else
-	echo "${GREEN}  Chef already installed.${RESET}"
 	echo
+	echo "${GREEN}  Chef already installed.${RESET}"
 fi
 
 if [ ! -f "/opt/chef/embedded/bin/berks" ]
@@ -58,10 +64,9 @@ then
 	echo
 	echo "${RED}  Installing Berkshelf for Chef ...${RESET}"
 	echo "${RED}  ---------------------------------${RESET}"
-	echo
 	sudo /opt/chef/embedded/bin/gem install --no-rdoc --no-ri berkshelf
 	ln -s /opt/chef/embedded/bin/berks /usr/local/bin
 else
-	echo "${GREEN}  Berkshelf already installed.${RESET}"
 	echo
+	echo "${GREEN}  Berkshelf already installed.${RESET}"
 fi
