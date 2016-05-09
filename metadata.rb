@@ -9,4 +9,4 @@ version '0.1.0'
 supports 'mac_os_x'
 
 depends 'build-essential', '~> 3.2.0'
-depends 'homebrew' '~> 2.1.0'
+depends 'homebrew', '~> 2.1.0'
