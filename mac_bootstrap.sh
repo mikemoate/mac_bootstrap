@@ -70,3 +70,18 @@ else
   echo
   echo "${GREEN}  Berkshelf already installed.${RESET}"
 fi
+
+if [ ! -d "${HOME}/mac_bootstrap/.git" ]
+then
+  echo
+  echo "${RED}  Cloning Git Repo ...${RESET}"
+  echo "${RED}  --------------------${RESET}"
+  cd ~ && git clone https://github.com/mikemoate/mac_bootstrap.git
+else
+  echo
+  echo "${RED}  Updating existing Git Repo ...${RESET}"
+  echo "${RED}  ------------------------------${RESET}"
+  git checkout master && git pull
+fi
+
+
