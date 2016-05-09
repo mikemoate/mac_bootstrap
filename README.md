@@ -1,4 +1,5 @@
 # mac_bootstrap
 
-TODO: Enter the cookbook description here.
-
+```bash
+curl -L https://raw.githubusercontent.com/mikemoate/mac_bootstrap/master/mac_bootstrap.sh | bash
+```
