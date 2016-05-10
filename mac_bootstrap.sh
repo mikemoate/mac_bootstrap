@@ -84,4 +84,8 @@ else
   git checkout master && git pull
 fi
 
+echo
+echo "${RED}  Vendoring cookbooks with Berkshelf ...${RESET}"
+echo "${RED}  --------------------------------------${RESET}"
 
+cd ~/mac_bootstrap && berks vendor cookbooks
