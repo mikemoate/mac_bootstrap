@@ -89,3 +89,9 @@ echo "${RED}  Vendoring cookbooks with Berkshelf ...${RESET}"
 echo "${RED}  --------------------------------------${RESET}"
 
 cd ~/mac_bootstrap && berks vendor cookbooks
+
+echo
+echo "${RED}  Running chef-client in local mode ...${RESET}"
+echo "${RED}  -------------------------------------${RESET}"
+
+cd ~/mac_bootstrap && chef-client -z -r mac_bootstrap::default
