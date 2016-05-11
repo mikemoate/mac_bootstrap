@@ -32,6 +32,8 @@ then
   PROD=$(softwareupdate -l | grep "\*.*Command Line" | head -n 1 | awk -F"*" '{print $2}' | sed -e 's/^ *//' | tr -d '\n')
   # install it
   softwareupdate -i "$PROD" -v
+  # clean up, otherwise Software Update will keep trying to install
+  rm /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
 else
   echo
   echo "${GREEN}  Xcode Command Line Tools already installed.${RESET}"  
