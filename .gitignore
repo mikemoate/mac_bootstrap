@@ -12,8 +12,12 @@ Gemfile.lock
 bin/*
 .bundle/*
 
+# Test Kitchen
 .kitchen/
 .kitchen.local.yml
 
 # Berkshelf
 cookbooks/*
+
+# chef-client local mode
+nodes/*
