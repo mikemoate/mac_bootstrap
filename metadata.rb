@@ -9,3 +9,4 @@ version '0.1.0'
 supports 'mac_os_x'
 
 depends 'homebrew', '~> 2.1.0'
+depends 'mac_os_x', '~> 1.4.6'
