@@ -4,6 +4,27 @@
 # Attributes:: default
 #
 
-default['homebrew']['formulas'] = ["git"]
+default['homebrew']['formulas'] = [
+                                    "git"
+                                  ]
 
-default['homebrew']['casks'] = ["google-chrome"]
+default['homebrew']['casks'] = [
+                                "beyond-compare",
+                                "sublime-text3",
+                                "royal-tsx",
+                                "joinme",
+                                "java",
+                                "flash-player",
+                                "the-unarchiver",
+                                "hipchat",
+                                "wireshark",
+                                "chefdk",
+                                "vagrant",
+                                "virtualbox",
+                                "packer",
+                                "google-drive",
+                                "skype",
+                                "inssider",
+                                "dropbox",
+                                "sourcetree"
+                               ]
