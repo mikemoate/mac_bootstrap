@@ -73,27 +73,27 @@ else
   echo "${GREEN}  Berkshelf already installed.${RESET}"
 fi
 
-if [ ! -d "${HOME}/mac_bootstrap/.git" ]
+if [ ! -d "/opt/mac_bootstrap/.git" ]
 then
   echo
   echo "${RED}  Cloning Git Repo ...${RESET}"
   echo "${RED}  --------------------${RESET}"
-  cd ~ && git clone https://github.com/mikemoate/mac_bootstrap.git
+  cd /opt && git clone https://github.com/mikemoate/mac_bootstrap.git
 else
   echo
   echo "${RED}  Updating existing Git Repo ...${RESET}"
   echo "${RED}  ------------------------------${RESET}"
-  git checkout master && git pull
+  cd /opt/mac_bootstrap && git checkout master && git pull
 fi
 
 echo
 echo "${RED}  Vendoring cookbooks with Berkshelf ...${RESET}"
 echo "${RED}  --------------------------------------${RESET}"
 
-cd ~/mac_bootstrap && berks vendor cookbooks
+cd /opt/mac_bootstrap && berks vendor cookbooks
 
 echo
 echo "${RED}  Running chef-client in local mode ...${RESET}"
 echo "${RED}  -------------------------------------${RESET}"
 
-cd ~/mac_bootstrap && chef-client -z -r mac_bootstrap::default
+cd /opt/mac_bootstrap && chef-client -z -r mac_bootstrap::default
