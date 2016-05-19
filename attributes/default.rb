@@ -24,7 +24,6 @@ default['homebrew']['casks'] = [
                                 "packer",
                                 "google-drive",
                                 "skype",
-                                "inssider",
                                 "dropbox",
                                 "sourcetree"
                                ]
