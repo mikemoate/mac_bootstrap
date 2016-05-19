@@ -78,22 +78,22 @@ then
   echo
   echo "${RED}  Cloning Git Repo ...${RESET}"
   echo "${RED}  --------------------${RESET}"
-  cd /opt && git clone https://github.com/mikemoate/mac_bootstrap.git
+  cd /opt && sudo git clone https://github.com/mikemoate/mac_bootstrap.git
 else
   echo
   echo "${RED}  Updating existing Git Repo ...${RESET}"
   echo "${RED}  ------------------------------${RESET}"
-  cd /opt/mac_bootstrap && git checkout master && git pull
+  cd /opt/mac_bootstrap && sudo git checkout master && sudo git pull
 fi
 
 echo
 echo "${RED}  Vendoring cookbooks with Berkshelf ...${RESET}"
 echo "${RED}  --------------------------------------${RESET}"
 
-cd /opt/mac_bootstrap && berks vendor cookbooks
+cd /opt/mac_bootstrap && sudo berks vendor cookbooks
 
 echo
 echo "${RED}  Running chef-client in local mode ...${RESET}"
 echo "${RED}  -------------------------------------${RESET}"
 
-cd /opt/mac_bootstrap && chef-client -z -r mac_bootstrap::default
+cd /opt/mac_bootstrap && sudo chef-client -z -r mac_bootstrap::default
