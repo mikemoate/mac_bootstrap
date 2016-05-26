@@ -14,7 +14,7 @@ default['homebrew']['casks'] = [
                                 "royal-tsx",
                                 "joinme",
                                 "java",
-                                "flash-player",
+                                "flash",
                                 "the-unarchiver",
                                 "hipchat",
                                 "wireshark",
