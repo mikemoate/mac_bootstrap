@@ -25,5 +25,6 @@ default['homebrew']['casks'] = [
                                 "google-drive",
                                 "skype",
                                 "dropbox",
-                                "sourcetree"
+                                "sourcetree",
+                                "spotify"
                                ]
