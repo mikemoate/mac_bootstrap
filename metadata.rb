@@ -10,3 +10,6 @@ supports 'mac_os_x'
 
 depends 'homebrew', '~> 2.1.0'
 depends 'mac_os_x', '~> 1.4.6'
+
+source_url 'https://github.com/mikemoate/mac_bootstrap' if respond_to?(:source_url)
+issues_url 'https://github.com/mikemoate/mac_bootstrap/issues' if respond_to?(:issues_url)
