@@ -26,5 +26,8 @@ default['homebrew']['casks'] = [
                                 "skype",
                                 "dropbox",
                                 "sourcetree",
-                                "spotify"
+                                "spotify",
+                                "google-hangouts",
+                                "vlc",
+                                "vlc-webplugin"
                                ]
