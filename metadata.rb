@@ -6,7 +6,7 @@ description 'Installs/Configures mac_bootstrap'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '0.1.0'
 
-supports 'mac_os_x'
+supports 'mac_os_x', '~> 10.11'
 
 depends 'homebrew', '~> 2.1.0'
 depends 'mac_os_x', '~> 1.4.6'
