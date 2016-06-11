@@ -6,7 +6,9 @@ This cookbook and associated shell script automate the setup and configuration o
 - Mac OS X (10.11+)
 
 ## Requirements
+* Xcode Command Line Tools `https://developer.apple.com/downloads/`
 * Opscode chef-client `https://docs.chef.io/install_omnibus.html` (for local mode)
+* Berkshelf `http://berkshelf.com`
 * Cookbooks:
   * homebrew `https://supermarket.chef.io/cookbooks/homebrew` (for package management on OS X)
   * mac_os_x `https://supermarket.chef.io/cookbooks/mac_os_x` (for managing OS X defaults and plists)
