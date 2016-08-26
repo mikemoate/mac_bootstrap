@@ -10,7 +10,7 @@ default['homebrew']['formulas'] = [
 
 default['homebrew']['casks'] = [
   'beyond-compare',
-  'sublime-text3',
+  'sublime-text',
   'royal-tsx',
   'joinme',
   'java',
