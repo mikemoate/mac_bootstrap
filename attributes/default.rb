@@ -5,7 +5,8 @@
 #
 
 default['homebrew']['formulas'] = [
-  'git'
+  'git',
+  'packer'
 ]
 
 default['homebrew']['casks'] = [
@@ -21,7 +22,6 @@ default['homebrew']['casks'] = [
   'chefdk',
   'vagrant',
   'virtualbox',
-  'packer',
   'google-drive',
   'skype',
   'dropbox',
