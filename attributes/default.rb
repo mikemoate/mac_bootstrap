@@ -32,5 +32,6 @@ default['homebrew']['casks'] = [
   'google-hangouts',
   'vlc',
   'vlc-webplugin',
-  'google-chrome'
+  'google-chrome',
+  'docker'
 ]
