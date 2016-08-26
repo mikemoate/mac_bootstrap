@@ -6,7 +6,8 @@
 
 default['homebrew']['formulas'] = [
   'git',
-  'packer'
+  'packer',
+  'mtr'
 ]
 
 default['homebrew']['casks'] = [
