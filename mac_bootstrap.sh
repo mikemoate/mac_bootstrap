@@ -96,4 +96,4 @@ echo
 echo "${RED}  Running chef-client in local mode ...${RESET}"
 echo "${RED}  -------------------------------------${RESET}"
 
-cd /opt/mac_bootstrap && sudo chef-client -z -r mac_bootstrap::default
+cd /opt/mac_bootstrap && sudo chef-client -z -r mac_bootstrap::default -j ./users/$(whoami).json

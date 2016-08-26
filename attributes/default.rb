@@ -7,7 +7,8 @@
 default['homebrew']['formulas'] = [
   'git',
   'packer',
-  'mtr'
+  'mtr',
+  'bash-completion'
 ]
 
 default['homebrew']['casks'] = [
