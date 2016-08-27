@@ -8,7 +8,9 @@ default['homebrew']['formulas'] = [
   'git',
   'packer',
   'mtr',
-  'bash-completion'
+  'bash-completion',
+  'docker-completion',
+  'docker-compose-completion'
 ]
 
 default['homebrew']['casks'] = [
