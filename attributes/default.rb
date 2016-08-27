@@ -10,7 +10,8 @@ default['homebrew']['formulas'] = [
   'mtr',
   'bash-completion',
   'docker-completion',
-  'docker-compose-completion'
+  'docker-compose-completion',
+  'awscli'
 ]
 
 default['homebrew']['casks'] = [
