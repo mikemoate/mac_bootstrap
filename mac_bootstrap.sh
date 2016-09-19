@@ -50,17 +50,6 @@ else
   echo "${GREEN}  Chef already installed.${RESET}"
 fi
 
-if [ "$(whoami)" != "$(stat -f '%Su' /usr/local/bin/)" ]
-then
-  echo
-  echo "${RED}  Fixing ownership of /usr/local ...${RESET}"
-  echo "${RED}  -----------------------------------${RESET}"
-  sudo chown -R $(whoami):admin /usr/local
-else
-  echo
-  echo "${GREEN}  Owner of /usr/local/bin is already $(whoami).${RESET}"
-fi
-
 if [ ! -f "/opt/chef/embedded/bin/berks" ]
 then
   echo
