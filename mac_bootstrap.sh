@@ -24,15 +24,13 @@ then
   echo "${RED}  ---------------------------------------${RESET}"
   
   # Taken from https://github.com/timsutton/osx-vm-templates/blob/master/scripts/xcode-cli-tools.sh
-
-  # create the placeholder file that's checked by CLI updates' .dist code 
+  # create the placeholder file that's checked by CLI updates' .dist code
   # in Apple's SUS catalog
   touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
   # find the CLI Tools update
   PROD=$(softwareupdate -l | grep "\*.*Command Line" | head -n 1 | awk -F"*" '{print $2}' | sed -e 's/^ *//' | tr -d '\n')
   # install it
-  softwareupdate -i "$PROD" -v
-  # clean up, otherwise Software Update will keep trying to install
+  softwareupdate -i "${PROD}" --verbose
   rm /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
 else
   echo
@@ -56,7 +54,7 @@ then
   echo "${RED}  Installing Berkshelf for Chef ...${RESET}"
   echo "${RED}  ---------------------------------${RESET}"
   sudo /opt/chef/embedded/bin/gem install --no-rdoc --no-ri berkshelf
-  ln -s /opt/chef/embedded/bin/berks /usr/local/bin
+  sudo ln -s /opt/chef/embedded/bin/berks /usr/local/bin
 else
   echo
   echo "${GREEN}  Berkshelf already installed.${RESET}"
