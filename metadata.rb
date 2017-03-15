@@ -8,7 +8,7 @@ version '0.1.0'
 
 supports 'mac_os_x', '~> 10.11'
 
-depends 'homebrew', '~> 2.1.0'
+depends 'homebrew', '~> 3.0.0'
 depends 'mac_os_x', '~> 1.4.6'
 
 source_url 'https://github.com/mikemoate/mac_bootstrap' if respond_to?(:source_url)
